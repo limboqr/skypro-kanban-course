@@ -13,7 +13,6 @@ function App() {
   return (
     <div className="wrapper">
       <PopExit />
-      <PopUser />
       <PopNewCard />
       <PopBrowse />
 

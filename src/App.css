@@ -859,7 +859,8 @@ body {
 }
 
 .header__pop-user-set {
-  display: none;
+  /* display: none; */
+  display: block;
   position: absolute;
   top: 61px;
   right: 0;
