@@ -1,17 +1,16 @@
 import Card from "../Card/Card"
 
 
-
-function Column({ title }) {
+function Column({ title, cards }) {
    return (
       <div className="main__column column">
          <div className="column__title">
             <p>{title}</p>
          </div>
          <div className="cards">
-            <Card name={"Web Design"} color={"_orange"} />
-            <Card name={"Research"} color={"_green"} />
-            <Card name={"Copywriting"} color={"_purple"} />
+            {cards.map(el => (
+               <Card key={el.id} title={el.title} name={el.topic} date={el.date} />
+            ))}
          </div>
       </div>
    )
