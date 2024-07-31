@@ -3,7 +3,7 @@ import PopUser from "../Popups/PopUser/PopUser"
 
 
 
-function Header() {
+function Header({ addCard }) {
    const [isPopUserOpened, setIsPopUserOpened] = useState(false)
 
    function handleOpenPopUser(event) {
@@ -30,7 +30,7 @@ function Header() {
                </div> */}
 
                <nav className="header__nav">
-                  <button className="header__btn-main-new _hover01" id="btnMainNew">
+                  <button onClick={addCard} className="header__btn-main-new _hover01" id="btnMainNew">
                      <a href="#popNewCard">Создать новую задачу</a>
                   </button>
 
