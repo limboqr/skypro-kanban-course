@@ -1,6 +1,6 @@
 import { useState } from "react"
 import PopUser from "../Popups/PopUser/PopUser"
-
+import * as S from "./Header.styled"
 
 
 function Header({ addCard }) {
@@ -13,15 +13,15 @@ function Header({ addCard }) {
    }
 
    return (
-      <header className="header">
+      <S.Header>
          <div className="container">
-            <div className="header__block">
+            <S.HeaderBlock>
 
-               <div className="header__logo _show _light">
+               <S.HeaderLogo className="_show _light">
                   <a href="#" target="_self">
                      <img src="./images/logo.png" alt="logo" />
                   </a>
-               </div>
+               </S.HeaderLogo>
 
                {/* <div className="header__logo _dark">
                   <a href="#" target="_self">
@@ -29,20 +29,20 @@ function Header({ addCard }) {
                   </a>
                </div> */}
 
-               <nav className="header__nav">
-                  <button onClick={addCard} className="header__btn-main-new _hover01" id="btnMainNew">
+               <S.HeaderNav>
+                  <S.HeaderNewCardButton onClick={addCard} className="_hover01">
                      <a href="#popNewCard">Создать новую задачу</a>
-                  </button>
+                  </S.HeaderNewCardButton>
 
-                  <a onClick={handleOpenPopUser} href="#user-set-target" className="header__user _hover02">
+                  <S.HeaderUser onClick={handleOpenPopUser} className="_hover02">
                      Ivan Ivanov
-                  </a>
+                  </S.HeaderUser>
 
                   {isPopUserOpened && <PopUser />}
-               </nav>
-            </div>
+               </S.HeaderNav>
+            </S.HeaderBlock>
          </div>
-      </header>
+      </S.Header>
    )
 }
 

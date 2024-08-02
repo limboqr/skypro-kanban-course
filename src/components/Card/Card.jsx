@@ -1,4 +1,4 @@
-
+import * as S from "./Card.styled"
 
 
 function Card({ title, name, date }) {
@@ -9,25 +9,23 @@ function Card({ title, name, date }) {
    }
 
    return (
-      <div className="cards__item">
-         <div className="cards__card card">
-            <div className="card__group">
-               <div className={`card__theme ${colors[name]}`}>
-                  <p>{name}</p>
-               </div>
-               <a href="#popBrowse" target="_self">
-                  <div className="card__btn">
-                     <div></div>
-                     <div></div>
-                     <div></div>
-                  </div>
-               </a>
-            </div>
-            <div className="card__content">
-               <a href="#" target="_blank">
-                  <h3 className="card__title">{title}</h3>
-               </a>
-               <div className="card__date">
+      <S.Cards>
+         <S.Card>
+            <S.CardGroup>
+               <S.CardName>
+                  {name}
+               </S.CardName>
+               <S.CardButton>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+               </S.CardButton>
+            </S.CardGroup>
+
+            <S.CardContent>
+               <S.CardTitle>{title}</S.CardTitle>
+
+               <S.CardDate>
                   <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13"
                      fill="none">
                      <g clipPath="url(#clip0_1_415)">
@@ -45,11 +43,11 @@ function Card({ title, name, date }) {
                         </clipPath>
                      </defs>
                   </svg>
-                  <p>{date}</p>
-               </div>
-            </div>
-         </div>
-      </div>
+                  <S.CardDateNumber>{date}</S.CardDateNumber>
+               </S.CardDate>
+            </S.CardContent>
+         </S.Card>
+      </S.Cards>
    )
 }
 

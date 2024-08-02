@@ -29,6 +29,7 @@ function App() {
     setCards([...cards, newCard])
   }
 
+  // * Загрузка (Данные загружаются...)
   useEffect(() => {
     setIsLoading(true)
 
