@@ -7,6 +7,7 @@ import PopExit from './components/Popups/PopExit/PopExit'
 import PopNewCard from './components/Popups/PopNewCard/PopNewCard'
 // import PopUser from './components/Popups/PopUser/PopUser'
 import { useEffect, useState } from 'react'
+import { GlobalStyle } from './components/Shared/Global.styled'
 
 
 function App() {
@@ -40,6 +41,8 @@ function App() {
 
   return (
     <div className="wrapper">
+      <GlobalStyle />
+
       <PopExit />
       <PopNewCard />
       <PopBrowse />

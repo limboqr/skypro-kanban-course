@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { Hover01 } from "../Shared/Shared.styled"
 
 
 export const Header = styled.header`
@@ -22,7 +23,7 @@ export const HeaderBlock = styled.div`
 export const HeaderLogo = styled.div`
    & img {
       width: 85px;
-}
+   }
 `
 
 export const HeaderNav = styled.nav`
@@ -48,6 +49,8 @@ export const HeaderNewCardButton = styled.button`
    & a {
       color: #FFFFFF;
    }
+
+   ${Hover01}
 `
 
 export const HeaderUser = styled.button`
