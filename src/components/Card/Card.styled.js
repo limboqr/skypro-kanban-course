@@ -6,6 +6,12 @@ export const Cards = styled.div`
    animation-name: card-animation;
    animation-duration: 500ms;
    animation-timing-function: linear;
+
+   @media screen and (max-width: 1200px) {
+      width: 100%;
+      display: flex;
+      overflow-y: auto;
+   }
 `
 
 export const Card = styled.div`
@@ -18,6 +24,18 @@ export const Card = styled.div`
    align-items: flex-start;
    justify-content: stretch;
    padding: 15px 13px 19px;
+
+   @media screen and (max-width: 1200px) {
+      width: 220px;
+      height: 130px;
+      background-color: #FFFFFF;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: stretch;
+      padding: 15px 13px 19px;
+   }
 `
 
 export const CardGroup = styled.div`
@@ -29,7 +47,7 @@ export const CardGroup = styled.div`
    justify-content: space-between;
 `
 
-export const CardName = styled.h4`
+export const CardTopic = styled.h4`
    width: auto;
    height: 20px;
    padding: 5px 14px;
@@ -38,6 +56,8 @@ export const CardName = styled.h4`
    font-size: 10px;
    font-weight: 600;
    line-height: 10px;
+
+   ${(props) => props.theme.getColor(props.$topic)}
 `
 
 export const CardButton = styled.button`

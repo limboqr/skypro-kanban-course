@@ -1,6 +1,7 @@
 import { useState } from "react"
 import PopUser from "../Popups/PopUser/PopUser"
 import * as S from "./Header.styled"
+import * as Shared from "../Shared/Shared.styled"
 
 
 function Header({ addCard }) {
@@ -14,9 +15,8 @@ function Header({ addCard }) {
 
    return (
       <S.Header>
-         <div className="container">
+         <Shared.Container>
             <S.HeaderBlock>
-
                <S.HeaderLogo className="_show _light">
                   <a href="#" target="_self">
                      <img src="./images/logo.png" alt="logo" />
@@ -30,18 +30,19 @@ function Header({ addCard }) {
                </div> */}
 
                <S.HeaderNav>
-                  <S.HeaderNewCardButton onClick={addCard} className="_hover01">
-                     <a href="#popNewCard">Создать новую задачу</a>
+                  <S.HeaderNewCardButton onClick={addCard}>
+                     Создать новую задачу
                   </S.HeaderNewCardButton>
 
-                  <S.HeaderUser onClick={handleOpenPopUser} className="_hover02">
+                  <S.HeaderUser onClick={handleOpenPopUser}>
                      Ivan Ivanov
                   </S.HeaderUser>
 
-                  {isPopUserOpened && <PopUser />}
+                  {isPopUserOpened && <PopUser username={"Ivan"} />}
+                  {isPopUserOpened && PopUser({ username: "Ivan" })}
                </S.HeaderNav>
             </S.HeaderBlock>
-         </div>
+         </Shared.Container>
       </S.Header>
    )
 }

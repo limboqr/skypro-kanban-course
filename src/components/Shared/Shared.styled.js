@@ -27,12 +27,6 @@ export const Hover03 = css`
 `
 
 // * Общее
-export const Target = css`
-   &:target {
-      display: block;
-   }
-`
-
 export const Wrapper = styled.div`
    max-width: 100%;
    width: 100vw;
@@ -46,6 +40,11 @@ export const Container = styled.div`
    width: 100%;
    margin: 0 auto;
    padding: 0 30px;
+
+   @media screen and (max-width: 495px) {
+      width: 100%;
+      padding: 0 16px;
+   }
 `
 
 // * Загрузка "Данные загружаются..."

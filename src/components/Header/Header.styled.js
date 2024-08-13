@@ -51,6 +51,18 @@ export const HeaderNewCardButton = styled.button`
    }
 
    ${Hover01}
+
+   @media screen and (max-width: 495px) {
+      z-index: 3;
+      position: fixed;
+      left: 16px;
+      bottom: 30px;
+      top: auto;
+      width: calc(100vw - 32px);
+      height: 40px;
+      border-radius: 4px;
+      margin-right: 0;
+   }
 `
 
 export const HeaderUser = styled.button`
@@ -62,6 +74,15 @@ export const HeaderUser = styled.button`
    font-size: 14px;
    line-height: 20px;
    color: #565EEF;
+
+   &:hover {
+      color: #33399b;
+}
+
+   &:hover::after {
+      border-left-color: #33399b;
+      border-bottom-color: #33399b;
+}
 
    &::after {
       content: "";

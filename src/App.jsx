@@ -8,6 +8,10 @@ import PopNewCard from './components/Popups/PopNewCard/PopNewCard'
 // import PopUser from './components/Popups/PopUser/PopUser'
 import { useEffect, useState } from 'react'
 import { GlobalStyle } from './components/Shared/Global.styled'
+import * as Shared from "./components/Shared/Shared.styled"
+import { ThemeProvider } from 'styled-components'
+import { lightTheme, darkTheme } from './data/theme'
+
 
 
 function App() {
@@ -40,16 +44,18 @@ function App() {
   }, [])
 
   return (
-    <div className="wrapper">
-      <GlobalStyle />
+    <ThemeProvider theme={lightTheme}>
+      <Shared.Wrapper>
+        <GlobalStyle />
 
-      <PopExit />
-      <PopNewCard />
-      <PopBrowse />
+        <PopExit />
+        <PopNewCard />
+        <PopBrowse />
 
-      <Header addCard={addCard} />
-      <Main cards={cards} isLoading={isLoading} />
-    </div>
+        <Header addCard={addCard} />
+        <Main cards={cards} isLoading={isLoading} />
+      </Shared.Wrapper>
+    </ThemeProvider>
   )
 }
 

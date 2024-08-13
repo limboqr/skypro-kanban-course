@@ -1,13 +1,14 @@
 import Column from "../Column/Column"
 import * as S from "./Main.styled"
+import * as Shared from "../Shared/Shared.styled"
 
 
 function Main({ cards, isLoading }) {
    return (
       <S.Main>
-         <div className="container">
+         <Shared.Container>
             <S.MainBlock>
-               {isLoading ? <p className="loading">Данные загружаются...</p> : (
+               {isLoading ? <Shared.Loading>Данные загружаются...</Shared.Loading> : (
                   <S.MainContent>
                      <Column title={"Без статуса"} cards={cards.filter(el => el.status === "Без статуса")} />
                      <Column title={"Нужно сделать"} cards={cards.filter(el => el.status === "Нужно сделать")} />
@@ -17,7 +18,7 @@ function Main({ cards, isLoading }) {
                   </S.MainContent>
                )}
             </S.MainBlock>
-         </div>
+         </Shared.Container>
       </S.Main>
    )
 }
