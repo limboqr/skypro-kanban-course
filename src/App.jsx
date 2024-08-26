@@ -5,13 +5,18 @@ import Main from './components/Main/Main'
 import PopBrowse from './components/Popups/PopBrowse/PopBrowse'
 import PopExit from './components/Popups/PopExit/PopExit'
 import PopNewCard from './components/Popups/PopNewCard/PopNewCard'
-// import PopUser from './components/Popups/PopUser/PopUser'
+
 import { useEffect, useState } from 'react'
+import { ThemeProvider } from 'styled-components'
+import { lightTheme, darkTheme } from './components/Shared/Themes'
+import { GlobalStyle } from './components/Shared/Global.styled'
+import * as Shared from "./components/Shared/Shared.styled"
 
 
 function App() {
   const [cards, setCards] = useState(Tasks)
   const [isLoading, setIsLoading] = useState(false)
+  const [globalTheme, setGlobalTheme] = useState(true)
 
   // * Добавление новой задачи
   function addCard(e) {
@@ -29,6 +34,7 @@ function App() {
     setCards([...cards, newCard])
   }
 
+  // * Загрузка (Данные загружаются...)
   useEffect(() => {
     setIsLoading(true)
 
@@ -38,14 +44,18 @@ function App() {
   }, [])
 
   return (
-    <div className="wrapper">
-      <PopExit />
-      <PopNewCard />
-      <PopBrowse />
+    <ThemeProvider theme={globalTheme ? lightTheme : darkTheme}>
+      <Shared.Wrapper>
+        <GlobalStyle />
 
-      <Header addCard={addCard} />
-      <Main cards={cards} isLoading={isLoading} />
-    </div>
+        <PopExit />
+        <PopNewCard />
+        <PopBrowse />
+
+        <Header addCard={addCard} globalTheme={globalTheme} setGlobalTheme={setGlobalTheme} />
+        <Main cards={cards} isLoading={isLoading} />
+      </Shared.Wrapper>
+    </ThemeProvider>
   )
 }
 

@@ -1,9 +1,10 @@
 import { useState } from "react"
 import PopUser from "../Popups/PopUser/PopUser"
+import * as S from "./Header.styled"
+import * as Shared from "../Shared/Shared.styled"
 
 
-
-function Header({ addCard }) {
+function Header({ addCard, globalTheme, setGlobalTheme }) {
    const [isPopUserOpened, setIsPopUserOpened] = useState(false)
 
    function handleOpenPopUser(event) {
@@ -13,36 +14,32 @@ function Header({ addCard }) {
    }
 
    return (
-      <header className="header">
-         <div className="container">
-            <div className="header__block">
+      <S.Header>
+         <Shared.Container>
+            <S.HeaderBlock>
+               <S.HeaderLogoLight href="#">
+                  <img src="./images/logo.png" alt="logo" />
+               </S.HeaderLogoLight>
 
-               <div className="header__logo _show _light">
-                  <a href="#" target="_self">
-                     <img src="./images/logo.png" alt="logo" />
-                  </a>
-               </div>
+               <S.HeaderLogoDark href="#">
+                  <img src="./images/logo_dark.png" alt="logo" />
+               </S.HeaderLogoDark>
 
-               {/* <div className="header__logo _dark">
-                  <a href="#" target="_self">
-                     <img src="./images/logo_dark.png" alt="logo" />
-                  </a>
-               </div> */}
 
-               <nav className="header__nav">
-                  <button onClick={addCard} className="header__btn-main-new _hover01" id="btnMainNew">
-                     <a href="#popNewCard">Создать новую задачу</a>
-                  </button>
+               <S.HeaderNav>
+                  <S.HeaderNewCardButton onClick={addCard}>
+                     Создать новую задачу
+                  </S.HeaderNewCardButton>
 
-                  <a onClick={handleOpenPopUser} href="#user-set-target" className="header__user _hover02">
+                  <S.HeaderUser onClick={handleOpenPopUser}>
                      Ivan Ivanov
-                  </a>
+                  </S.HeaderUser>
 
-                  {isPopUserOpened && <PopUser />}
-               </nav>
-            </div>
-         </div>
-      </header>
+                  {isPopUserOpened && <PopUser username={"Ivan"} globalTheme={globalTheme} setGlobalTheme={setGlobalTheme} />}
+               </S.HeaderNav>
+            </S.HeaderBlock>
+         </Shared.Container>
+      </S.Header>
    )
 }
 
