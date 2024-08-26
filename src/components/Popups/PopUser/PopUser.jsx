@@ -1,18 +1,19 @@
+import * as S from "../PopUser/PopUser.styled"
 
 
-
-function PopUser() {
+function PopUser({ globalTheme, setGlobalTheme }) {
    return (
-      <div className="header__pop-user-set pop-user-set" id="user-set-target">
-         {/* <!-- <a href="">x</a> --> */}
-         <p className="pop-user-set__name">Ivan Ivanov</p>
-         <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
-         <div className="pop-user-set__theme">
-            <p>Темная тема</p>
-            <input type="checkbox" className="checkbox" name="checkbox" />
-         </div>
-         <button type="button" className="_hover03"><a href="#popExit">Выйти</a></button>
-      </div>
+      <S.PopUser>
+         <S.PopUserName>Ivan Ivanov</S.PopUserName>
+         <S.PopUserMail>ivan.ivanov@gmail.com</S.PopUserMail>
+
+         <S.PopUserTheme>
+            <S.PopUserThemeDark>Темная тема</S.PopUserThemeDark>
+            <S.PopUserThemeCheckbox type="checkbox" onChange={() => setGlobalTheme(!globalTheme)} />
+         </S.PopUserTheme>
+
+         <S.PopUserButton>Выйти</S.PopUserButton>
+      </S.PopUser>
    )
 }
 

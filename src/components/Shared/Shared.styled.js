@@ -32,7 +32,7 @@ export const Wrapper = styled.div`
    width: 100vw;
    min-height: 100vh;
    overflow: hidden;
-   background-color: #EAEEF6;
+   background-color: ${({ theme }) => theme.shared.body};
 `
 
 export const Container = styled.div`
@@ -52,6 +52,7 @@ export const Loading = styled.div`
    text-align: center;
    margin-top: 50px;
    font-size: 26px;
+   color: ${({ theme }) => theme.shared.text};
 `
 
 // * Часто использованный Subtitle
@@ -62,7 +63,7 @@ export const Subtitle = styled.label`
    line-height: 1;
 `
 
-// * Цвета
+// * Цвета topic
 export const Orange = css`
    background-color: #FFE4C2;
    color: #FF6D00;

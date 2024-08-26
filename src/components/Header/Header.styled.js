@@ -5,7 +5,7 @@ import { Hover01 } from "../Shared/Shared.styled"
 export const Header = styled.header`
    width: 100%;
    margin: 0 auto;
-   background-color: #FFFFFF;
+   background-color: ${({ theme }) => theme.shared.secondary};
 `
 
 export const HeaderBlock = styled.div`
@@ -20,12 +20,23 @@ export const HeaderBlock = styled.div`
    padding: 0 10px;
 `
 
-export const HeaderLogo = styled.div`
+// * Logo
+export const HeaderLogoLight = styled.a`
+   display: ${({ theme }) => !theme.isDarkLogo ? 'block' : 'none'};
+
+   & img {
+      width: 85px;
+   }
+`
+export const HeaderLogoDark = styled.a`
+   display: ${({ theme }) => theme.isDarkLogo ? 'block' : 'none'};
+
    & img {
       width: 85px;
    }
 `
 
+// * Header навигация
 export const HeaderNav = styled.nav`
    max-width: 290px;
    padding: 0;
@@ -40,7 +51,6 @@ export const HeaderNewCardButton = styled.button`
    border-radius: 4px;
    background-color: #565EEF;
    color: #FFFFFF;
-   border: none;
    font-size: 14px;
    line-height: 1;
    font-weight: 500;
@@ -73,16 +83,12 @@ export const HeaderUser = styled.button`
    justify-content: center;
    font-size: 14px;
    line-height: 20px;
-   color: #565EEF;
+   font-weight: 500;
+   color: ${({ theme }) => theme.popUser.nameUser.text};
 
    &:hover {
-      color: #33399b;
-}
-
-   &:hover::after {
-      border-left-color: #33399b;
-      border-bottom-color: #33399b;
-}
+      color: ${({ theme }) => theme.popUser.nameUser.hover};
+   }
 
    &::after {
       content: "";
@@ -90,11 +96,14 @@ export const HeaderUser = styled.button`
       width: 6px;
       height: 6px;
       border-radius: 1px;
-      border-left: 1.9px solid #565EEF;
-      border-bottom: 1.9px solid #565EEF;
+      border-left: 1.9px solid ${({ theme }) => theme.popUser.nameUser.text};
+      border-bottom: 1.9px solid ${({ theme }) => theme.popUser.nameUser.text};
       transform: rotate(-45deg);
-      margin: -6px 0 0 5px;
-      padding: 0;
+      margin: -3px 0 0 6px;
+   }
+
+   &:hover::after {
+      border-left-color: ${({ theme }) => theme.popUser.nameUser.hover};
+      border-bottom-color: ${({ theme }) => theme.popUser.nameUser.hover};
    }
 `
-

@@ -4,7 +4,7 @@ import * as S from "./Header.styled"
 import * as Shared from "../Shared/Shared.styled"
 
 
-function Header({ addCard }) {
+function Header({ addCard, globalTheme, setGlobalTheme }) {
    const [isPopUserOpened, setIsPopUserOpened] = useState(false)
 
    function handleOpenPopUser(event) {
@@ -17,17 +17,14 @@ function Header({ addCard }) {
       <S.Header>
          <Shared.Container>
             <S.HeaderBlock>
-               <S.HeaderLogo className="_show _light">
-                  <a href="#" target="_self">
-                     <img src="./images/logo.png" alt="logo" />
-                  </a>
-               </S.HeaderLogo>
+               <S.HeaderLogoLight href="#">
+                  <img src="./images/logo.png" alt="logo" />
+               </S.HeaderLogoLight>
 
-               {/* <div className="header__logo _dark">
-                  <a href="#" target="_self">
-                     <img src="./images/logo_dark.png" alt="logo" />
-                  </a>
-               </div> */}
+               <S.HeaderLogoDark href="#">
+                  <img src="./images/logo_dark.png" alt="logo" />
+               </S.HeaderLogoDark>
+
 
                <S.HeaderNav>
                   <S.HeaderNewCardButton onClick={addCard}>
@@ -38,8 +35,7 @@ function Header({ addCard }) {
                      Ivan Ivanov
                   </S.HeaderUser>
 
-                  {isPopUserOpened && <PopUser username={"Ivan"} />}
-                  {isPopUserOpened && PopUser({ username: "Ivan" })}
+                  {isPopUserOpened && <PopUser username={"Ivan"} globalTheme={globalTheme} setGlobalTheme={setGlobalTheme} />}
                </S.HeaderNav>
             </S.HeaderBlock>
          </Shared.Container>
